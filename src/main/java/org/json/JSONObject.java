@@ -1512,7 +1512,14 @@ public class JSONObject {
                         || "-0".equals(string)) {
                     Double d = Double.valueOf(string);
                     if (!d.isInfinite() && !d.isNaN()) {
-                        return d;
+                    	// Determine if it should be a Double or a BigDecimal by checking
+                    	// if the Double can be turned back into the same string
+                    	// If not, then we've probably lost some precision and should use BigDecimal
+                        String doubleAsStr = d.toString();
+                    	if( string.equals(doubleAsStr) )
+                    		return d;
+                    	else
+                    		return new BigDecimal(string);
                     }
                 } else {
                     Long myLong = new Long(string);
