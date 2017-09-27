@@ -4,7 +4,7 @@
 	
 	<groupId>org.json</groupId>
 	<artifactId>json_orderedkeys</artifactId>
-	<version>20160407</version>
+	<version>20170927</version>
 	<name>json_orderedkeys</name>
 	
 	<build>	
